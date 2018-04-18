@@ -26,4 +26,8 @@
    font-family: $secondaryFont;
  }
 
+  .header .title, .header .subtitle {
+    color: #000 !important;
+  }
+
 </style>
