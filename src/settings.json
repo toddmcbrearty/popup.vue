@@ -1,6 +1,8 @@
 {
   "name": "Quick Start",
 
-  "headline": "Get started building"
+  "headline": "Get started building",
+
+  "banner": "This is the banner<br />make this empty and it will automatically remove the banner."
 
 }

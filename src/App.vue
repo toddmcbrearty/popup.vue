@@ -2,11 +2,9 @@
   <div id="app">
     <Header :name="shared.name" :headline="shared.headline"></Header>
 
-    <Content>
-      <div slot="content">
-        This is the content
-      </div>
-    </Content>
+    <Banner :banner-text="shared.banner"></Banner>
+
+    <Content>this is slot text</Content>
 
     <Footer></Footer>
   </div>
@@ -16,6 +14,7 @@
   import Header from './components/Header';
   import Content from './components/Content';
   import Footer from './components/Footer';
+  import Banner from './components/Banner';
   import Settings from './settings';
 
   export default {
@@ -25,6 +24,7 @@
       Header,
       Content,
       Footer,
+      Banner,
     },
 
     data() {
