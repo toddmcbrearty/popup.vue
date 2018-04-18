@@ -11,10 +11,10 @@
 </template>
 
 <script>
-  import Header from './components/Header';
-  import Content from './components/Content';
-  import Footer from './components/Footer';
-  import Banner from './components/Banner';
+  import Header from './components/_components/Header';
+  import Content from './components/_components/Content';
+  import Footer from './components/_components/Footer';
+  import Banner from './components/_components/Banner';
   import Settings from './settings';
 
   export default {
