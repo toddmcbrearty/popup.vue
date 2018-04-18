@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header></Header>
+    <Header :name="shared.name" :headline="shared.headline"></Header>
 
     <Content>
       <div slot="content">
@@ -16,6 +16,7 @@
   import Header from './components/Header';
   import Content from './components/Content';
   import Footer from './components/Footer';
+  import Settings from './settings';
 
   export default {
     name: 'app',
@@ -28,6 +29,7 @@
 
     data() {
       return {
+        shared: Settings
       }
     }
   }
