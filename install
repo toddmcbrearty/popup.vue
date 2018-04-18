@@ -1,0 +1,7 @@
+if [ -d node_modules ]; then
+  rm -rf node_modules
+  rm "src/settings.json"
+fi
+
+yarn install
+cp src/default-settings.json src/settings.json
