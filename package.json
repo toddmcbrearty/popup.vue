@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "bulma": "^0.7.0",
+    "path": "^0.12.7",
     "vue": "^2.5.11"
   },
   "browserslist": [
