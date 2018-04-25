@@ -1,7 +1,80 @@
-if [ -d node_modules ]; then
-  rm -rf node_modules
-  rm "src/settings.json"
+#!/bin/bash
+
+usage() {
+  echo "Usage: no parameters attempts to perform a fresh install"
+  echo "       [-r] reinstall application." 1>&2;
+  echo "       [-n] re/install dependencies." 1>&2;
+  echo "       [-s] install/reset settings." 1>&2;
+  echo "       [-h] show usage." 1>&2;
+  exit 1;
+}
+
+installDependencies() {
+  if [ "$depsInstalled" = false ]; then
+    echo " - Installing dependencies" >&2
+    depsInstalled=true
+
+    if [ -d node_modules ]; then
+      echo "Deleteing node_modules"
+
+      rm -rf node_modules >&2
+    fi
+
+    yarn install
+  fi
+}
+
+installSettings() {
+  if [ "$settingsInstalled" = false ]; then
+    echo " - Installing settings" >&2
+    settingsInstalled=true
+
+    if [ -f "src/settings.json" ]; then
+      rm "src/settings.json"
+    fi
+
+    cp src/default-settings.json src/settings.json
+  fi
+}
+
+depsInstalled=false
+settingsInstalled=false
+verbose=false
+
+if [ -f .installed ]; then
+
+  while getopts ":rns :h" opt; do
+    case "${opt}" in
+      r)
+        installDependencies
+        installSettings
+        echo "Application reinstalled"
+        ;;
+      n)
+        installDependencies
+        ;;
+      s)
+        installSettings
+        ;;
+      v)
+        verbose=true
+        ;;
+      h)
+        usage
+        ;;
+    esac
+  done
+  shift $((OPTIND-1))
+
+  if [ $OPTIND -eq 1 ]; then
+    echo "Application already installed."
+  fi
+
+  exit 0
 fi
 
-yarn install
-cp src/default-settings.json src/settings.json
+  installDependencies
+  installSettings
+  touch .installed
+
+  echo "Application installed."
