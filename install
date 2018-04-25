@@ -37,6 +37,11 @@ installSettings() {
   fi
 }
 
+finalize() {
+  rm -rf .git
+  touch .installed
+}
+
 depsInstalled=false
 settingsInstalled=false
 verbose=false
@@ -48,6 +53,7 @@ if [ -f .installed ]; then
       r)
         installDependencies
         installSettings
+        finalize
         echo "Application reinstalled"
         ;;
       n)
@@ -73,8 +79,8 @@ if [ -f .installed ]; then
   exit 0
 fi
 
-  installDependencies
-  installSettings
-  touch .installed
+installDependencies
+installSettings
+finalize
 
-  echo "Application installed."
+echo "Application installed."
