@@ -1,4 +1,4 @@
-#Popup Vue Development Tool
+# Popup Vue Development Tool
 > A Todd Project
 
 - [Installation](#installation)
@@ -14,7 +14,7 @@ This will load the required dependencies and create the settings file.
 It will also remove the .git directory. Removing the application from
 git will allow a new repo to be created. 
 
-##  <a name="installation-flags"></a> Installation Flags
+## <a name="installation-flags"></a> Installation Flags
 
 Run `./install -h` for usage:
 ```
