@@ -20,7 +20,9 @@
 
 <style lang="scss">
   .banner.notification {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 1.75rem;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    color: #495e91;
   }
 </style>

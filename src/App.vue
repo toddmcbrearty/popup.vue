@@ -6,7 +6,7 @@
 
     <Content v-html="shared.slotText"></Content>
 
-    <Footer v-show="shared.showFooter"></Footer>
+    <Footer v-show="shared.showFooter" :shared="shared"></Footer>
   </div>
 </template>
 

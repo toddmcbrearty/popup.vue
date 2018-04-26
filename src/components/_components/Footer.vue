@@ -17,8 +17,8 @@
         </div>
       </div>
     </div>
-    <div class="has-text-centered has-text-left-mobile">
-      <Copyright></Copyright>
+    <div class="copy has-text-centered has-text-left-mobile">
+      <Copyright :pre-text="shared.name"></Copyright>
     </div>
   </footer>
 </template>
@@ -28,6 +28,8 @@
 
   export default {
     name: "Footer",
+
+    props: ['shared'],
 
     components: {
       Copyright
@@ -42,5 +44,13 @@
 
   .footer {
     background: #d0d0d0;
+    position: relative;
+  }
+
+  .copy {
+    position: absolute;
+    bottom: 0;
+    left:0;
+    width: 100%
   }
 </style>

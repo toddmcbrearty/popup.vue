@@ -1,7 +1,7 @@
 {
   "name": "QuickTools",
   "headline": "Feel the quickness",
-  "bannerText": "Remove the banner text and the banner disappears.",
+  "bannerText": "Get Started Quicker",
   "showBanner": true,
   "showFooter": true,
   "slotText": "<div class=\"title is-size-4 has-text-centered\">Welcome to QuickTools<br /><small>Start Developing</small></div>"

@@ -1,5 +1,6 @@
 <template>
   <div class="date">
+    <span v-html="preText"></span>
     <span v-html="copy"></span>
     <span v-text="copyDate"></span>
   </div>
@@ -9,9 +10,11 @@
   export default {
     name: "Copyright",
 
+    props: ['preText'],
+
     data() {
       return {
-        copy: '&copy;'
+        copy: '&copy;',
       }
     },
 
@@ -25,5 +28,5 @@
 </script>
 
 <style scoped>
-
+  .date {}
 </style>
