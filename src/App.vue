@@ -35,7 +35,7 @@
 
     computed: {
       showBanner() {
-        return (this.shared.bannerText !== undefined && this.shared.bannerText !== '');
+        return (this.shared.showBanner && this.shared.bannerText !== undefined && this.shared.bannerText !== '');
       }
     }
   }
