@@ -1,3 +1,4 @@
+.installed
 settings.json
 .DS_Store
 node_modules/
