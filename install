@@ -118,5 +118,5 @@ finalize "$keepGit"
 yarn run build
 
 echo "Application installed."
-echo "yarn run watch to watch directory"
-echo "yarn run dev and load http://localhost:8080"
+echo "command: yarn run watch > to watch directory"
+echo "command: yarn run dev > and load http://localhost:8080"
