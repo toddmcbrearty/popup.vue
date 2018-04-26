@@ -10,6 +10,14 @@ usage() {
   exit 1;
 }
 
+depsInstalled=false
+settingsInstalled=false
+verbose=false
+keepGit=false
+runDeps=false
+runSettings=false
+runFinalize=false
+
 installDependencies() {
   if [ "$depsInstalled" = false ]; then
     echo " - Installing dependencies" >&2
@@ -38,34 +46,28 @@ installSettings() {
   fi
 }
 
-finalize() {
-  if [ "$keepGit" = false ]; then
+finalize(){
+  if [ "$1" = false ]; then
     rm -rf .git
   fi
 
   touch .installed
 }
 
-depsInstalled=false
-settingsInstalled=false
-verbose=false
-keepGit=false
 
-if [ -f .installed ]; then
-
-  while getopts ":rnsg :h" opt; do
+  while getopts ":ns :rg :h" opt; do
     case "${opt}" in
       r)
-        installDependencies
-        installSettings
-        finalize
+        runDeps=true
+        runSettings=true
+        runFinalize=true
         echo "Application reinstalled"
         ;;
       n)
-        installDependencies
+        runDeps=true
         ;;
       s)
-        installSettings
+        runSettings=true
         ;;
       g)
         keepGit=true
@@ -77,8 +79,22 @@ if [ -f .installed ]; then
   done
   shift $((OPTIND-1))
 
+if [ -f .installed ]; then
+
   if [ $OPTIND -eq 1 ]; then
     echo "Application already installed."
+  fi
+
+  if [ "$runDeps" = true ]; then
+        installDependencies
+  fi
+
+  if [ "$runSettings" = true ]; then
+        installSettings
+  fi
+
+  if [ "$runFinalize" = true ]; then
+        finalize "$keepGit"
   fi
 
   exit 0
@@ -86,6 +102,6 @@ fi
 
 installDependencies
 installSettings
-finalize
+finalize "$keepGit"
 
 echo "Application installed."
