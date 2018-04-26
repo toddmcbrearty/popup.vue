@@ -69,6 +69,8 @@ finalize(){
         runDeps=true
         runSettings=true
         runFinalize=true
+        yarn run build
+
         echo "Application reinstalled"
         ;;
       n)
@@ -111,5 +113,6 @@ fi
 installDependencies
 installSettings
 finalize "$keepGit"
+yarn run build
 
 echo "Application installed."
