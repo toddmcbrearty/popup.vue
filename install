@@ -51,6 +51,10 @@ finalize(){
     rm -rf .git
   fi
 
+  if [ -d docs ]; then
+    rm -rf docs
+  fi
+
   touch .installed
 }
 
