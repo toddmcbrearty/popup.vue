@@ -55,6 +55,10 @@ finalize(){
     rm -rf docs
   fi
 
+  if [ -f _config.yml ]; then
+    rm -f _config.yml
+  fi
+
   touch .installed
 }
 
