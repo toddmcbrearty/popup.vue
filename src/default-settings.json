@@ -1,8 +1,13 @@
 {
-  "name": "Quick Start",
+  "name": "QuickTools",
 
-  "headline": "Get started building",
+  "headline": "Feel the quickness",
 
-  "banner": "This is the banner<br />make this empty and it will automatically remove the banner."
+  "bannerText": "Remove the banner text and the banner disappears.",
 
+  "showFooter": true,
+
+  "slotText": "Welcome to QuickTools<br />Start Developing",
+
+  "database": []
 }
