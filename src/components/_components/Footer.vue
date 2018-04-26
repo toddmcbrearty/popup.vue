@@ -4,15 +4,15 @@
       <div class="content has-text-centered">
         <div class="columns">
           <div class="column">
-            <div class="has-text-center column-title">Column 1</div>
+            <div class="column-title">Column 1</div>
           </div>
 
           <div class="column">
-            <div class="has-text-center column-title">Column 2</div>
+            <div class="column-title">Column 2</div>
           </div>
 
           <div class="column">
-            <div class="has-text-center column-title">Column 2</div>
+            <div class="column-title">Column 2</div>
           </div>
         </div>
       </div>
@@ -41,6 +41,6 @@
   }
 
   .footer {
-    background: #f3f3f3;
+    background: #d0d0d0;
   }
 </style>

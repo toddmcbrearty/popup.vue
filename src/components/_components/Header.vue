@@ -43,7 +43,7 @@
   }
 
   .header .title, .header .subtitle {
-    color: #000 !important;
+    color: #f2f2f2 !important;
   }
 
 </style>

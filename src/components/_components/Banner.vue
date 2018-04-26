@@ -1,8 +1,8 @@
 <template>
-  <div class="notification has-text-centered"
-       :class="background"
-       v-html="bannerText"
-       v-if="bannerText !== ''"></div>
+  <div class="banner notification has-text-centered"
+       :class="background">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
@@ -10,19 +10,17 @@
     name: "Banner",
 
     props: {
-      bannerText: {
-        type: String,
-        default: '',
-      },
-
       background: {
         type: String,
-        default: 'is-warning'
+        default: 'is-info'
       }
     }
   };
 </script>
 
-<style scoped>
-
+<style lang="scss">
+  .banner.notification {
+    font-size: 2rem;
+    font-weight: 700;
+  }
 </style>

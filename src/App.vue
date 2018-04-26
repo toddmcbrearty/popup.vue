@@ -2,11 +2,11 @@
   <div id="app">
     <Header :name="shared.name" :headline="shared.headline"></Header>
 
-    <Banner :banner-text="shared.banner"></Banner>
+    <Banner v-html="shared.bannerText" v-show="showBanner" background="is-success"></Banner>
 
-    <Content>this is slot text</Content>
+    <Content v-html="shared.slotText"></Content>
 
-    <Footer></Footer>
+    <Footer v-show="shared.showFooter"></Footer>
   </div>
 </template>
 
@@ -30,6 +30,12 @@
     data() {
       return {
         shared: Settings
+      }
+    },
+
+    computed: {
+      showBanner() {
+        return (this.shared.bannerText !== undefined && this.shared.bannerText !== '');
       }
     }
   }
