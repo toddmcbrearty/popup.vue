@@ -5,6 +5,7 @@ usage() {
   echo "       [-r] reinstall application." 1>&2;
   echo "       [-n] re/install dependencies." 1>&2;
   echo "       [-s] install/reset settings." 1>&2;
+  echo "       [-g] keep git." 1>&2;
   echo "       [-h] show usage." 1>&2;
   exit 1;
 }
@@ -38,13 +39,17 @@ installSettings() {
 }
 
 finalize() {
-  rm -rf .git
+  if [ "$keepGit" = false ]; then
+    rm -rf .git
+  fi
+
   touch .installed
 }
 
 depsInstalled=false
 settingsInstalled=false
 verbose=false
+keepGit=false
 
 if [ -f .installed ]; then
 
@@ -62,8 +67,8 @@ if [ -f .installed ]; then
       s)
         installSettings
         ;;
-      v)
-        verbose=true
+      g)
+        keepGit=true
         ;;
       h)
         usage
