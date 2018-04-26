@@ -53,7 +53,7 @@ keepGit=false
 
 if [ -f .installed ]; then
 
-  while getopts ":rns :h" opt; do
+  while getopts ":rnsg :h" opt; do
     case "${opt}" in
       r)
         installDependencies
